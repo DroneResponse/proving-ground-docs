@@ -27,4 +27,4 @@ proving_ground/wake_up
 
 This value matches a `uavID` that previously made a SADE entry request. The SAM decided that this drone needs to go to the proving ground.
 
-This value also corrosponds to the `uavid` field in the status message.
+This value also corresponds to the `uavid` field in the status message. Please note the `uavid` property is all lowercase and that's intentional. It's otherwise identical to the `uavID` field found in other messages.
