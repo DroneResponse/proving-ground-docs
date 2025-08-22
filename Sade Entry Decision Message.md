@@ -36,28 +36,28 @@ drone/{uavID}/sade_entry_response
 
 ## Field Descriptions
 
-uavID
+### `uavID`
 - Type: string
 - Description: Name or identifier of the drone.
 - Notes: Must match the {uavID} used in the MQTT topic.
 
-sade_zone_id
+### `sade_zone_id`
 - Type: string
 - Description: Identifier of the SADE Zone.
 
-decision
+### `decision`
 - Type: string (enum)
 - Allowed Values:
     - `ALLOW` — Drone is permitted entry.
     - `DENY` — Drone is denied entry.
     - `PROVING_GROUND` — Drone must go to the proving ground.
 
-fields
+### `fields`
 - Type: list of strings
 - Description: Specifies optional status fields the drone must now include in its status messages.
 - Example Values:
-    - gps_status
-    - vibration
-    - rc_out
-    - ekf_status
-    - target_attitude
+    - `gps_status`
+    - `vibration`
+    - `rc_out`
+    - `ekf_status`
+    - `target_attitude`
