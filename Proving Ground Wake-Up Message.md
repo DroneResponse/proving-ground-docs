@@ -1,8 +1,6 @@
 # Proving Ground Wake-Up Message
 
-The **SAM** sends this message to the proving ground to notify it that a drone has been directed there for testing.
-
-This message tells the proving ground which drone to expect.
+The drone operator sends this message to the proving ground. This message notifies the proving ground that a drone is ready for testing.
 
 ## MQTT Topic
 
