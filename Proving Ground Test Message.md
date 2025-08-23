@@ -142,7 +142,7 @@ The drones must:
 1. Navigate to the `approach_point` 
 2. Proceed to the  `start_point`, then
 3. Execute `waypoints` in listed order.
-    - Each waypoint will specify `hover_time` (seconds). The vehicle should maintain the waypoint position for the specified duration before continuing.
+    - Each waypoint will specify `hover_time` (seconds). The vehicle should _hover_ at the waypoint position for the specified duration before continuing.
 
 ---
 
