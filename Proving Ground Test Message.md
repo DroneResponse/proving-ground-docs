@@ -138,12 +138,12 @@ NOTE: `{uavID}` is a placeholder. The name or identifier for the drone under tes
 
 ## How to enter the proving ground
 
-- The drones must:
-  1. Navigate to the `approach_point` 
-  2. Proceed to the  `start_point`, then
-  3. Execute `waypoints` in listed order.
-- Each waypoint will specify `hover_time` (seconds). The vehicle should maintain the waypoint position for the specified duration before continuing.
-- 
+The drones must:
+1. Navigate to the `approach_point` 
+2. Proceed to the  `start_point`, then
+3. Execute `waypoints` in listed order.
+  - Each waypoint will specify `hover_time` (seconds). The vehicle should maintain the waypoint position for the specified duration before continuing.
+
 ---
 
 ## LLA Object (Latitude/Longitude/Altitude)
