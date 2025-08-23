@@ -1,4 +1,4 @@
-# Proving Ground Test Message (JSON)
+# Proving Ground Test Message
 
 This (draft) document describes the JSON message format used to define a proving ground test. Each JSON message specifies the plan that a drone must follow for evaluation. These messages are published over the AWS MQTT broker. The Ground Station of the drone receives these messages and commands the drone accordingly.
 
@@ -8,6 +8,8 @@ These messages are sent to this topic:
 ```
 proving_ground/test/{uavID}
 ```
+
+NOTE: `{uavID}` is a placeholder. The name or identifier for the drone under test would replace that. For example, for the Red drone, the topic would be `proving_ground/test/Red`
 
 ## Example JSON Message
 
