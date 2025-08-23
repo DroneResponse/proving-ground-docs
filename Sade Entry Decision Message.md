@@ -39,7 +39,7 @@ drone/{uavID}/sade_entry_response
 ### `uavID`
 - Type: string
 - Description: Name or identifier of the drone.
-- Notes: Must match the {uavID} used in the MQTT topic.
+- Notes: Must match the `{uavID}` used in the MQTT topic.
 
 ### `sade_zone_id`
 - Type: string
