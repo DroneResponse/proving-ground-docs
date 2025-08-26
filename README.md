@@ -9,7 +9,7 @@ reference documents for drone proving ground tests, including JSON message forma
 # Proving-Ground Use Case Scenario
 The scenario is triggered when a drone is given a "proving_ground" decision by the sade_entry component.
 1. The **GCS** sends the drone first to the approach point, and then to the starting point of the proving ground, and then publishes a wake-up call on *proving_ground/wake_up* carrying the uav_id (e.g., PolkaDot).
-2. The **GCS** subscribes to *drone/{uavID}/sade_entry_response*
+2. The **GCS** subscribes to *drone/{uavID}/sade_entry_response* 
 3. The **proving ground** receives the wake_up call, subscribes to *drone/starts waiting for *drone/{uavID}/ready*. This implies that the drone has reached the starting point of the proving ground test. [COORDINATES WILL BE ADDED HERE FOR THE NASA DEMO].
 4. Upon receipt of a *drone/PolkaDot/ready* message, the **proving ground** assigns its first task to the drone using *proving_ground/test/{uavID}* 
 5. The **GCS** receives the test message and translates it into flight instructions for the drone (this part is black-box to the proving ground).
