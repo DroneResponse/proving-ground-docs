@@ -4,15 +4,23 @@ reference documents for drone proving ground tests, including JSON message forma
 - [Drone Status Message.md](/Drone%20Status%20Message.md)
 - [Proving Ground Test Message.md](Proving%20Ground%20Test%20Message.md)
 - [Proving Ground Wake-Up Message.md](Proving%20Ground%20Wake-Up%20Message.md)
+- [Proving Ground Outcome Message.md](Proving%20Ground%20Wake-Up%20Message.md)
 - [Sade Entry Decision Message.md](Sade%20Entry%20Decision%20Message.md)
 
 # Proving-Ground Use Case Scenario
+
+NOTE: Coordinates of the Proving Ground will be decided ahead of time. We need to know:
+- The Proving Ground Origin
+- The Approach Point
+- The Start Point
+- The Boundry of the Proving Ground
+- The location of each camera?
+
 The scenario is triggered when a drone is given a "proving_ground" decision by the sade_entry component.
-1. The **GCS** sends the drone first to the approach point, and then to the starting point of the proving ground, and then publishes a wake-up call on *proving_ground/wake_up* carrying the uav_id (e.g., PolkaDot).
-2. The **GCS** subscribes to *drone/{uavID}/sade_entry_response* 
-3. The **proving ground** receives the wake_up call, subscribes to *drone/starts waiting for *drone/{uavID}/ready*. This implies that the drone has reached the starting point of the proving ground test. [COORDINATES WILL BE ADDED HERE FOR THE NASA DEMO].
-4. Upon receipt of a *drone/PolkaDot/ready* message, the **proving ground** assigns its first task to the drone using *proving_ground/test/{uavID}* 
-5. The **GCS** receives the test message and translates it into flight instructions for the drone (this part is black-box to the proving ground).
-6. Upon completion of the test, the **DR-Onboard** publishes a *drone/{uavID}/ready* message and  Steps 3 - 5 are repeated as long as the proving ground has more tests.
-7. When the **proving ground** has no more tests to be run it issues a *drone/{uavID}/sade_entry_response* message bearing a decision. This decision can only be *admit* or *deny*.
-8. The **GCS** receives this message.  If the message is admit the GCS generates a flight that takes is safely out of the proving ground (for safety it will ascend above the height of the cameras / or along a straight path out? and then receive a flight path back into the SADE zone).  Similarly a deny decision will result in a safe path out of the proving ground and then a path home to land.
+1. Drone flies to SADE entry point and asks for entry. The drone reports a task outcome of `proving_gound`. This informs the choreographer that it needs to send the `wake_up` message to proving ground.
+2. The proving ground sends one or more [Proving Ground Test Message.md](Proving%20Ground%20Test%20Message.md).
+3. The **GCS** receives the test message, creates a task that flies to approach point, then into starting point, then it flies the test.
+4. The proving ground knows when the test is done. the proving ground sends a another [Proving Ground Test Message.md](Proving%20Ground%20Test%20Message.md). in this case go back to step 2. Otherwise if there are no more tests the proving ground sends the [Proving Ground Outcome Message.md](Proving%20Ground%20Outcome%20Message.md).
+5. The **GCS** receives the [Proving Ground Outcome Message.md](Proving%20Ground%20Outcome%20Message.md). The GCS then send the drone a new task to request entry into the SADE zone.
+6. This drone reports the outcome of the SADE entry request using a "custom" task outcome. See [Drone Ready for Task](https://github.com/DroneResponse/Onboarding/blob/main/topics.md#task-drone-ready-for-task) message
+
