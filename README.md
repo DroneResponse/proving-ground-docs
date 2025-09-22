@@ -30,7 +30,7 @@ The scenario is triggered when a drone is given a "proving_ground" decision by t
 9. The **drone system** receives the [Proving Ground Outcome Message.md](Proving%20Ground%20Outcome%20Message.md) and then requests entry into the SADE zone.
 10. The **drone system** receives an entry decision from the SADE authorization manager. The drone proceeds to either:
    - Fly a mission that goes through the SADE zone (if the SADE authorization manager grants entry)
-   - Fly home and land or fly a mission that stays outside the SADE zone (if the SADE authorization manager denies entry into the SADE zone)
+   - Fly home or fly a mission that stays outside the SADE zone (if the SADE authorization manager denies entry)
 
 ## Proving Ground Example Code
 
