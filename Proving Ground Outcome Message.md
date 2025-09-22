@@ -5,8 +5,9 @@ This message communicates the outcome of **all** completed test.
 ## MQTT Topic
 
 ```
-proving_ground/outcome
+proving_ground/outcome/{uavID}
 ```
+NOTE: `{uavID}` is a placeholder. The name or identifier for the drone under test would replace that. For example, for the Red drone, the topic would be `proving_ground/outcome/Red`
 
 ## Example JSON
 ```json
